@@ -83,11 +83,11 @@
                 <div class="flex justify-center gap-4 items-center w-36 mx-auto pb-10">
                     
                     <div class="bg-black text-center mx-auto p-5 flex justify-center flex-col items-center text-white w-36">
-                        <span class="text-4xl font-bold leading-5 counter-number">54</span>
+                        <span class="text-4xl font-bold leading-5 counter-number"></span>
                         <span class="text-base font-light mt-2 pop-font">Minutes</span>
                     </div>
                     <div class="bg-black text-center mx-auto p-5 flex justify-center flex-col items-center text-white w-36">
-                        <span class="text-4xl font-bold leading-5 counter-number">59</span>
+                        <span class="text-4xl font-bold leading-5 counter-number"></span>
                         <span class="text-base font-light mt-2 pop-font">Seconds</span>
                     </div>
                 </div>
@@ -332,8 +332,11 @@
 
 
                 <script>
-                  function startSimpleCountdown(duration, displayMinutes, displaySeconds) {
-    var timer = duration, minutes, seconds;
+function startSimpleCountdown(duration, displayMinutes, displaySeconds) {
+    // Check if there's a saved timer value in localStorage and use it
+    var timer = localStorage.getItem('timer') ? parseInt(localStorage.getItem('timer'), 10) : duration,
+        minutes, seconds;
+
     setInterval(function () {
         // Calculate the minutes and seconds from the timer
         minutes = parseInt(timer / 60, 10);
@@ -347,14 +350,17 @@
         displayMinutes.textContent = minutes;
         displaySeconds.textContent = seconds;
 
-        // Decrease timer
+        // Decrease timer and save the updated value to localStorage
         if (--timer < 0) {
             timer = duration; // Reset timer if you want it to start over
+        } else {
+            // Save the current timer value to localStorage
+            localStorage.setItem('timer', timer);
         }
     }, 1000);
 }
 
-// Start the countdown timer with a duration of 5 minutes (300 seconds)
+// Start the countdown timer with a duration of 54 minutes (3240 seconds)
 window.onload = function () {
     var countdownDuration = 54 * 60, // Convert minutes to seconds
         displayMinutes = document.querySelector('.counter .bg-black:nth-child(1) span.text-4xl'),
