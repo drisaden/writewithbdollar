@@ -17,6 +17,7 @@
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+            <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <link rel="icon" type="image/png" href="./images/danwithtoyin.png">
 
     </head>
@@ -123,11 +124,11 @@
         <main class="md:ml-48 md:mr-48 mt-10">
 
             <section class="text-2xl mont">
-                <div class="mx-auto rounded-lg m-5">
+                <div class="mx-auto rounded-lg m-5" data-aos="fade-up">
                     <img src="./images/danwithtoyin.png"
                         alt="How I made $600 In a WEEK using WhatsApp"
                         width="500px"
-                        class="animate__animated animate__fadeIn img-border  rounded-lg">
+                        class=" img-border rounded-lg">
                 </div>
                 <p class="p-5 leading-10 tracking-widest text-lg">
                     Meet <b>Daniel Sampson.</b> The fair guy who was awarded by
@@ -182,16 +183,16 @@
             <div class="mx-auto px-5">
                 <img src="./images/test1.jpg"
                     alt="How I made $600 In a WEEK using WhatsApp" width="400px"
-                    class="animate__animated animate__fadeIn img-border m-5">
+                    class=" img-border m-5" data-aos="fade-up">
                 <img src="./images/test2.jpg"
                     alt="How I made $600 In a WEEK using WhatsApp" width="400px"
-                    class="animate__animated animate__fadeIn img-border m-5">
+                    class=" img-border m-5"  data-aos="fade-up">
                 <img src="./images/test3.jpg"
                     alt="How I made $600 In a WEEK using WhatsApp" width="400px"
-                    class="animate__animated animate__fadeIn img-border m-5">
+                    class=" img-border m-5"  data-aos="fade-up">
                 <img src="./images/test4.jpg"
                     alt="How I made $600 In a WEEK using WhatsApp" width="400px"
-                    class="animate__animated animate__fadeIn img-border m-5">
+                    class=" img-border m-5"  data-aos="fade-up">
             </div>
 
             <div class="text-center mb-10">
@@ -332,7 +333,7 @@
                 </main>
 
 
-                <footer class="text-center mt-5 mx-0 pop-font"
+                <footer class="text-center mt-5 mx-0 pop-font text-sm"
                     style="background-color:rgb(38, 37, 37) ;color: white;">
                     <p class="mx-auto md:w-1/2 text-sm pt-3">This Site Is Not A
                         Part Of The Tiktok Website. Additionally, This Site Is Not Endorsed By Tiktok
@@ -344,9 +345,17 @@
                 </footer>
 
 
-
+                <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
                 <script>
-function startSimpleCountdown(duration, displayMinutes, displaySeconds) {
+AOS.init({
+           offset: 200,
+           duration: 1000,
+           delay: 200,
+           once: true
+         });
+
+
+ function startSimpleCountdown(duration, displayMinutes, displaySeconds) {
     // Check if there's a saved timer value in localStorage and use it
     var timer = localStorage.getItem('timer') ? parseInt(localStorage.getItem('timer'), 10) : duration,
         minutes, seconds;
@@ -372,6 +381,7 @@ function startSimpleCountdown(duration, displayMinutes, displaySeconds) {
             localStorage.setItem('timer', timer);
         }
     }, 1000);
+
 }
 
 // Start the countdown timer with a duration of 54 minutes (3240 seconds)
@@ -382,6 +392,7 @@ window.onload = function () {
 
     startSimpleCountdown(countdownDuration, displayMinutes, displaySeconds);
 };
+    
 
 
                 </script>
